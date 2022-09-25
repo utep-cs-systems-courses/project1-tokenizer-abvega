@@ -1,3 +1,4 @@
+
 tokenizer: tokenizer.o main.o history.o 
 	cc -o tokenizer tokenizer.o main.o history.o
 

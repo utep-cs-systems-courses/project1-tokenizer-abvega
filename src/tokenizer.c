@@ -58,7 +58,7 @@ char **tokenize(char* str){
     int i;
     for(i = 0; i < words; i++){
         p = word_start(p);
-        int length = word_length(p);
+        int length = lengthWord(p);
         tokens[i] = copy_str(p, length);
         p = word_terminator(p);
     }
@@ -77,10 +77,25 @@ char **tokenize(char* str){
         }
         free(tokens);
     }
-    int length(char *str){
-        int length =0;
+    int lengthWord(char *str){
+        int lngth =0;
         for(int i =0; *(str+i) != '\0'; i++){
-            length+= 1;
+            if(non_space_char(*(str+i))){
+            lngth+= 1;
+            }
         }
-        return length;
+        return lngth;
     }
+    int lengthString(char *str){
+        int lngth =0;
+        for(int i =0; *(str+i) != '\0'; i++){
+            if(non_space_char(*(str+i))){
+                lngth+=1;
+            }
+        else{
+            break;
+        }
+      }
+      return lngth;
+    }
+

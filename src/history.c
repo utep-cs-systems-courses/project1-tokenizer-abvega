@@ -1,5 +1,8 @@
 #include "history.h"
-#include "stdio.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "tokenizer.h"
+
 
 
 List* init_history(){
@@ -46,4 +49,11 @@ void free_history(List *list){
     free(temp->str);
     free(temp);
     free(list);
+}
+int string_length(char *str){
+    int lngth = 0;
+    for(int i =0; *(str+i) != '\0'; i++){
+        lngth =+1;
+    }
+    return lngth;
 }

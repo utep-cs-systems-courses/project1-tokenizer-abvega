@@ -1,11 +1,15 @@
+OBJS = tokenizer.o history.o
+OBJS_MAIN = $(OBJS) main.o
+OBJS_TEST = $(OBJS) tester.o 
+CFLAGS = -g -O3
+all: tokenizer
+tokenizer: $(OBJS)
+	cc -o tokenizer $(CFLAGS) $(OBJS)
 
-tokenizer: tokenizer.o main.o history.o 
-	cc -o tokenizer tokenizer.o main.o history.o
+$(OBJS): history.h tokenizer.h
 
-clean: 
+clean:
 	rm -f *.o tokenizer
-tokenizer.o: tokenizer.h tokenizer.o 
 
-main.o: main.c tokenizer.h history.h 
-
-history.o: history.h history.c tokenizer.h
+run: tokenizer
+	./tokenizer

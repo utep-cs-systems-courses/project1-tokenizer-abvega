@@ -20,7 +20,7 @@ void add_history(List *list, char *str){
     }
     temp->next = malloc(sizeof(Item));
     temp->next->str = copy_str(str,lengthString(str));
-    temp->next->id =num;
+    temp->next->id = num;
 }
 char *get_history(List *list, int id){
     Item *temp = list->root;
